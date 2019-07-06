@@ -1,0 +1,14 @@
+version: '3.6'
+
+services:
+  front:
+    container_name: front
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 80:3000
+    environment:
+      - NODE_ENV=production
+      - REACT_APP_USERS_SERVICE_URL=
+      - REACT_APP_DELIVERIES_SERVICE_URL=
