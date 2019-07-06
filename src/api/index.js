@@ -1,6 +1,6 @@
 export function getDeliveries() {
   const token = localStorage.getItem('token');
-  return fetch('http://localhost:5001/deliveries', {
+  return fetch(`${process.env.REACT_APP_DELIVERIES_SERVICE_URL}/deliveries`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -11,7 +11,7 @@ export function getDeliveries() {
 
 export function createDelivery(delivery) {
   const token = localStorage.getItem('token');
-  return fetch('http://localhost:5001/deliveries', {
+  return fetch(`${process.env.REACT_APP_DELIVERIES_SERVICE_URL}/deliveries`, {
     method: 'POST',
     body: JSON.stringify({
       description: delivery.description
@@ -24,7 +24,7 @@ export function createDelivery(delivery) {
 }
 
 export function login(user) {
-  return fetch('http://localhost:5000/login', {
+  return fetch(`${process.env.REACT_APP_USERS_SERVICE_URL}/login`, {
     method: 'POST',
     body: JSON.stringify({
     	"nombre": user.email,
@@ -37,7 +37,7 @@ export function login(user) {
 }
 
 export function register(user) {
-  return fetch('http://localhost:5000/register', {
+  return fetch(`${process.env.REACT_APP_USERS_SERVICE_URL}/register`, {
     method: 'POST',
     body: JSON.stringify({
     	"nombre": user.email,
